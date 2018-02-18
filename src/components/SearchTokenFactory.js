@@ -1,5 +1,6 @@
+import async from 'async';
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router'
+import { Link, Router, Route, Switch } from 'react-router-dom';
 import { CircularProgress, DropDownMenu, MenuItem, RaisedButton, Toggle, TextField } from 'material-ui';
 import { grey900, grey500, grey300, grey100, blue500 } from 'material-ui/styles/colors';
 
@@ -21,18 +22,16 @@ class SearchTokenFactory extends Component {
       return (
         <form className="SearchTokenFactory-form">
           <TextField className="justify-center full-width" name="contractAddress" floatingLabelText="Contract Address" inputStyle={{ color: '#E0E0E0' }} floatingLabelStyle={{ color: '#E0E0E0' }} value={this.state.contractAddress} onChange={this.handleContractAddressChange.bind(this)} />
-          <RaisedButton className="justify-center buffer-top-lg full-width button-lg" disableTouchRipple={true} buttonStyle={{ color: '#212121' }} label="Search" primary={true} onClick={this.handleSubmit.bind(this)} />
+          <Link to={`/search/${this.state.contractAddress}`}>
+            <RaisedButton className="justify-center buffer-top-lg full-width button-lg" disableTouchRipple={true} buttonStyle={{ color: '#212121' }} label="Search" primary={true} />
+          </Link>
         </form>
       );
     }
   }
 
-  handleContractAddressChange(e, i, value) {
+  handleContractAddressChange(e, value) {
     this.setState({ contractAddress: value });
-  }
-
-  handleSubmit() {
-    this.toggleLoading();
   }
 
   toggleLoading() {

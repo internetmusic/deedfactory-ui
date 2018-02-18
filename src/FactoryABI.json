@@ -1,0 +1,68 @@
+{
+	"abi": [
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "getLastCreated",
+			"outputs": [
+				{
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "created",
+			"outputs": [
+				{
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"name": "_name",
+					"type": "string"
+				},
+				{
+					"name": "_symbol",
+					"type": "string"
+				},
+				{
+					"name": "_description",
+					"type": "string"
+				},
+				{
+					"name": "_initialSupply",
+					"type": "uint256"
+				}
+			],
+			"name": "createRegistry",
+			"outputs": [
+				{
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

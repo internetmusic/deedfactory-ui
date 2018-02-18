@@ -7,8 +7,10 @@ import { grey900, grey500, grey300, grey100, blue500 } from 'material-ui/styles/
 import { AppBar, CircularProgress, DropDownMenu, FlatButton, FontIcon, MenuItem, RaisedButton, Toggle, TextField } from 'material-ui';
 
 import CreateTokenFactory from './components/CreateTokenFactory.js'
+import CreateTokenFactoryResults from './components/CreateTokenFactoryResults.js'
 import Main from './components/Main.js'
 import SearchTokenFactory from './components/SearchTokenFactory.js'
+import SearchTokenFactoryResults from './components/SearchTokenFactoryResults.js'
 
 import logo from './logo.svg';
 import './App.css';
@@ -48,7 +50,7 @@ class App extends Component {
             className="App-bar"
             title={
               <Link className="App-title" to="/">
-                <FlatButton className="button-lg no-margin" disableTouchRipple={true} label="721 Token Factory"></FlatButton>
+                <FlatButton className="button-lg no-margin" disableTouchRipple={true} label="Collectory"></FlatButton>
               </Link>
             }
             iconElementLeft={<span></span>}
@@ -59,7 +61,7 @@ class App extends Component {
                 target="_blank"
                 primary={true}
                 disableTouchRipple={true}
-                icon={<i className="fa fa-github no-margin" />}
+                icon={<i className="fa fa-github no-margin margin-bottom-sm" />}
                 style={{ 'font-size': '36px' }}
               />
             }
@@ -71,12 +73,14 @@ class App extends Component {
               primary={true}
               disableTouchRipple={true}
               icon={<i className="fa fa-3x fa-arrow-circle-left no-margin" />}
-              style={{ margin: '25px' }}
+              style={{ margin: '20px' }}
             />
           </Link>
           <Route exact path="/" component={Main} />
           <Route exact path="/create" component={CreateTokenFactory} />
+          <Route exact path="/create/results" component={CreateTokenFactoryResults} />
           <Route exact path="/search" component={SearchTokenFactory} />
+          <Route exact path="/search/:contractAddress" component={SearchTokenFactoryResults} />
         </div>
       </MuiThemeProvider>
     );
