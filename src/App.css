@@ -1,0 +1,79 @@
+.App-title {
+  display: inline-block;
+  width: 150px;
+}
+
+.App-bar > div {
+  margin: 0 !important;
+}
+
+.Main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 5%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  min-width: 300px;
+}
+
+.CreateTokenFactory-form, .SearchTokenFactory-form {
+  display: grid;
+  grid-template-rows: repeat(1fr);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  min-width: 300px;
+}
+
+.button-link {
+  display: inline-block;
+}
+
+.button-lg {
+  height: 64px !important;
+  line-height: 64px !important;
+}
+
+.button-lg > button {
+  height: 64px !important;
+  line-height: 64px !important;
+}
+
+.button-lg > button > div {
+  height: 64px !important;
+  line-height: 64px !important;
+}
+
+.buffer-top-lg {
+  margin-top: 30px;
+}
+
+.buffer-top-md {
+  margin-top: 18px;
+}
+
+.justify-center {
+  justify-self: center;
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.muidocs-icon-custom-github:before {
+  content: "\e625";
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
