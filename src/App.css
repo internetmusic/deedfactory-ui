@@ -1,10 +1,18 @@
+.App-bar > div {
+  margin: 0 !important;
+}
+
+.App-bar {
+  background-color: #F5F5F5!important;
+}
+
+fa {
+  color: #F5F5F5 !important;
+}
+
 .App-title {
   display: inline-block;
   width: 150px;
-}
-
-.App-bar > div {
-  margin: 0 !important;
 }
 
 .Main {

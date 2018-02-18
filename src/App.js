@@ -15,8 +15,8 @@ import './App.css';
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: grey300,
-    primary2Color: blue500,
+    primary1Color: grey100,
+    primary2Color: grey100,
     primary3Color: blue500,
     accent1Color: grey300,
     accent2Color: grey300,
@@ -57,7 +57,7 @@ class App extends Component {
                 className="button-lg no-margin"
                 href="https://github.com/deedfactory"
                 target="_blank"
-                secondary={true}
+                primary={true}
                 disableTouchRipple={true}
                 icon={<i className="fa fa-github no-margin" />}
                 style={{ 'font-size': '36px' }}
@@ -68,7 +68,7 @@ class App extends Component {
             <FlatButton
               className="button-lg"
               target="_blank"
-              secondary={true}
+              primary={true}
               disableTouchRipple={true}
               icon={<i className="fa fa-3x fa-arrow-circle-left no-margin" />}
               style={{ margin: '25px' }}

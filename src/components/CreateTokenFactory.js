@@ -35,7 +35,7 @@ class CreateTokenFactory extends Component {
           style={{ twidth: '100%', display: 'grid', 'grid-template-rows': '1fr 0', 'justify-content': 'center' }}
           labelStyle={{ color: grey300 }}
         />
-        <RaisedButton className="justify-center buffer-top-lg button-lg full-width" disableTouchRipple={true} buttonStyle={{ color: '#212121' }} label="Create" secondary={true} onClick={this.handleSubmit.bind(this)} />
+        <RaisedButton className="justify-center buffer-top-lg button-lg full-width" disableTouchRipple={true} buttonStyle={{ color: '#212121' }} label="Create" primary={true} onClick={this.handleSubmit.bind(this)} />
       </form>
     }
   }

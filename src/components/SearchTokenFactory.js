@@ -21,7 +21,7 @@ class SearchTokenFactory extends Component {
       return (
         <form className="SearchTokenFactory-form">
           <TextField className="justify-center full-width" name="contractAddress" floatingLabelText="Contract Address" inputStyle={{ color: '#E0E0E0' }} floatingLabelStyle={{ color: '#E0E0E0' }} value={this.state.contractAddress} onChange={this.handleContractAddressChange.bind(this)} />
-          <RaisedButton className="justify-center buffer-top-lg full-width button-lg" disableTouchRipple={true} buttonStyle={{ color: '#212121' }} label="Search" secondary={true} onClick={this.handleSubmit.bind(this)} />
+          <RaisedButton className="justify-center buffer-top-lg full-width button-lg" disableTouchRipple={true} buttonStyle={{ color: '#212121' }} label="Search" primary={true} onClick={this.handleSubmit.bind(this)} />
         </form>
       );
     }

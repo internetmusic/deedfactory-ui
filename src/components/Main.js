@@ -12,10 +12,10 @@ class Main extends Component {
     return (
       <div class="Main">
         <Link className="button-link" to="/create">
-          <RaisedButton className="full-width button-lg" disableTouchRipple={true} buttonStyle={{ color: '#212121' }} label="Create" secondary={true} />
+          <RaisedButton className="full-width button-lg" disableTouchRipple={true} buttonStyle={{ color: '#212121' }} label="Create" primary={true} />
         </Link>
         <Link className="button-link" to="/search">
-          <RaisedButton className="full-width button-lg" disableTouchRipple={true} buttonStyle={{ color: '#212121' }} label="Search" secondary={true} />
+          <RaisedButton className="full-width button-lg" disableTouchRipple={true} buttonStyle={{ color: '#212121' }} label="Search" primary={true} />
         </Link>
       </div>
     );
