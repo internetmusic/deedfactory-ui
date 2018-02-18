@@ -27,7 +27,7 @@ fa {
   min-width: 300px;
 }
 
-.CreateTokenFactory-form, .SearchTokenFactory-form, .CreateTokenFactoryResults, .SearchTokenFactoryResults {
+.CreateTokenFactory-form, .SearchTokenFactory-form, .CreateTokenFactoryResults, .SearchTokenFactoryResults, .MintToken-form, .MintTokenResults {
   display: grid;
   grid-template-rows: repeat(1fr);
   position: fixed;

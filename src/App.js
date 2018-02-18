@@ -9,6 +9,8 @@ import { AppBar, CircularProgress, DropDownMenu, FlatButton, FontIcon, MenuItem,
 import CreateTokenFactory from './components/CreateTokenFactory.js'
 import CreateTokenFactoryResults from './components/CreateTokenFactoryResults.js'
 import Main from './components/Main.js'
+import MintToken from './components/MintToken.js'
+import MintTokenResults from './components/MintTokenResults.js'
 import SearchTokenFactory from './components/SearchTokenFactory.js'
 import SearchTokenFactoryResults from './components/SearchTokenFactoryResults.js'
 
@@ -79,6 +81,8 @@ class App extends Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/create" component={CreateTokenFactory} />
           <Route exact path="/create/results" component={CreateTokenFactoryResults} />
+          <Route exact path="/mint" component={MintToken} />
+          <Route exact path="/mint/results" component={MintTokenResults} />
           <Route exact path="/search" component={SearchTokenFactory} />
           <Route exact path="/search/:contractAddress" component={SearchTokenFactoryResults} />
         </div>

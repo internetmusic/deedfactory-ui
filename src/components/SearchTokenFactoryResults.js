@@ -1,4 +1,5 @@
 import axios from 'axios';
+import request from 'request';
 import async from 'async';
 import React, { Component } from 'react';
 import { Link, Router, Route, Switch } from 'react-router-dom';
@@ -48,12 +49,15 @@ class SearchTokenFactory extends Component {
               <Paper style={paperStyle} zDepth={3} className="last-child-margin-bottom" >
                 <p>{tile.description}</p>
                 {/* <p>{tile.image}</p> */}
-                <img style={{ 'max-width': 180, 'margin-top': 5 }} src={tile.image} />
+                <img style={{ 'max-width': 180, 'margin-top': 5 }} src={tile.url} />
               </Paper>
             ))}
           </div>
         </div>
-        <Link to="/" style="">
+        <Link to={{
+          pathname: "/mint",
+          state: { ...this.state }
+        }}>
           <FlatButton
             className="button-lg"
             target="_blank"
@@ -71,7 +75,7 @@ class SearchTokenFactory extends Component {
   }
 
   componentDidMount() {
-    const MyContract = new window.web3.eth.Contract(factoryABI, '0x0ca098bb44a6e97da20355aa5481e53bcef402f5');
+    const FactoryContract = new window.web3.eth.Contract(factoryABI, '0xb33dfc1a9544a952e5e1a98fca1c346f0e5cd29a');
 
     window.web3.eth.getAccounts((error, accounts) => {
       if (error) {
@@ -79,30 +83,31 @@ class SearchTokenFactory extends Component {
         return;
       }
 
-      MyContract.methods.getLastCreated().call({ from: accounts[0] }, (err, lastCreated) => {
-        const FactoryContract = new window.web3.eth.Contract(registryABI, lastCreated);
+      FactoryContract.methods.getLastCreated().call({ from: accounts[0] }, (err, lastCreated) => {
+        const RegistryContract = new window.web3.eth.Contract(registryABI, lastCreated);
 
-        FactoryContract.methods.totalSupply().call({ from: accounts[0] }, (err, currentSupply) => {
-          debugger;
+        RegistryContract.methods.totalSupply().call({ from: accounts[0] }, (err, currentSupply) => {
           if (error) {
             //handle
             return;
           }
-          debugger;
           async.times(currentSupply, (i, callback) => {
-            MyContract.methods.getMetadataAtID(i).send({ from: accounts[0] }, (error, url) => {
+            RegistryContract.methods.getMetadataAtID(i).call({ from: accounts[0] }, (error, url) => {
               if (error) {
                 // handle
                 return;
               }
-              // axios.get(url)
+              request({ url, method: 'GET' }, (err, resp, body) => {
+                callback(err, JSON.parse(body));
+              });
               //1. fetch data at url
               //2. put description and image in view
-              callback(null, url);
             });
           }, (err, results) => {
+            debugger;
             this.setState({
-              metadata: results
+              metadata: results.map(({ Description, Url }) => ({ description: Description, url: `http://159.65.76.159:8080/${Url}`})),
+              contractAddress: lastCreated
             });
             this.toggleLoading();
           });
